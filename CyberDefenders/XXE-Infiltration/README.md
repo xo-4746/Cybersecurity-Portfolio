@@ -1,1 +1,85 @@
-<img width="608" height="2268" alt="image" src="https://github.com/user-attachments/assets/11f7c6d2-0548-4b5e-b8be-b4c753f4302a" />
+# XXE Infiltration
+
+## Platform
+CyberDefenders
+
+## Skills Demonstrated
+
+- Wireshark
+- Network Forensics
+- Packet Analysis
+- XXE Detection
+- Incident Response
+
+## Scenario
+
+Investigated a PCAP containing evidence of an XML External Entity (XXE) attack against a web application.
+
+## Findings
+
+### Reconnaissance
+
+The attacker conducted a SYN scan.
+
+**Open Service Identified**
+- TCP 3306 (MySQL)
+
+### Vulnerable Endpoint
+
+The attacker uploaded malicious XML files through:
+
+```text
+/review/upload.php
+```
+
+### Files Accessed
+
+The attacker successfully accessed:
+
+```text
+/etc/passwd
+```
+
+and
+
+```text
+/var/www/html/config.php
+```
+
+### Credential Exposure
+
+**Database User**
+```text
+webuser
+```
+
+**Database Password**
+```text
+[REDACTED]
+```
+
+### Persistence
+
+The attacker leveraged XXE to retrieve remote content and establish persistence.
+
+## MITRE ATT&CK
+
+| Technique | ID |
+|------------|------------|
+| Network Service Scanning | T1046 |
+| Exploit Public-Facing Application | T1190 |
+| Valid Accounts | T1078 |
+| Command and Scripting Interpreter | T1059 |
+
+## Lessons Learned
+
+- Disable XML external entity processing.
+- Protect sensitive configuration files.
+- Store credentials securely.
+- Monitor unexpected XML uploads.
+- Review outbound connections initiated by web applications.
+
+## Tools Used
+
+- Wireshark
+- CyberDefenders Lab Environment
