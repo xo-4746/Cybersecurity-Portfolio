@@ -83,3 +83,12 @@ The attacker leveraged XXE to retrieve remote content and establish persistence.
 
 - Wireshark
 - CyberDefenders Lab Environment
+## Evidence
+
+### XXE Payload
+
+![XXE Payload](screenshots/xxe-payload.png)
+
+### Config.php Disclosure
+
+![Config Disclosure](screenshots/config-disclosure.png)
