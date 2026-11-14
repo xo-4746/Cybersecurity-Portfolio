@@ -1,4 +1,8 @@
 # XXE Infiltration
+## Executive Summary
+
+This investigation analyzed a PCAP containing an XML External Entity (XXE) attack against a web application. The attacker exploited a vulnerable XML upload feature to access sensitive files, obtain database credentials, authenticate to MySQL, and establish persistence on the target system. Analysis was performed using Wireshark and network forensic techniques.
+
 
 ## Platform
 CyberDefenders
